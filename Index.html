@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Result Check</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; }
+    .container { max-width: 500px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; }
+    input, select, button { width: 100%; padding: 10px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Check Your Result</h2>
+    <form onsubmit="checkResult(event)">
+      <input type="text" id="roll" placeholder="Enter Roll Number" required>
+      <input type="text" id="reg" placeholder="Enter Registration Number" required>
+      <select id="board">
+        <option value="">Select Board</option>
+        <option value="Dhaka">Dhaka</option>
+        <option value="Chittagong">Chittagong</option>
+        <option value="Rajshahi">Rajshahi</option>
+        <option value="Jessore">Jessore</option>
+      </select>
+      <input type="text" id="year" placeholder="Enter Year (e.g., 2024)" required>
+      <button type="submit">Check Result</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function checkResult(e) {
+      e.preventDefault();
+      const roll = document.getElementById('roll').value;
+      const reg = document.getElementById('reg').value;
+      const board = document.getElementById('board').value;
+      const year = document.getElementById('year').value;
+      
+      document.getElementById('result').innerHTML = `
+        <h3>Result</h3>
+        <p>Roll: ${roll}</p>
+        <p>Reg: ${reg}</p>
+        <p>Board: ${board}</p>
+        <p>Year: ${year}</p>
+        <p><strong>GPA: 5.00</strong></p>
+      `;
+    }
+  </script>
+</body>
+</html>
